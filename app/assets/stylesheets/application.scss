@@ -18,15 +18,17 @@
  {
   min-height: 75rem;
   padding-top: 4.5rem;
+  background-color: #ffffcc;
 }
 
 .container
 {
 	padding-top: 15px;
 }
-thead
+th
 {
-	background-color: #dddddd;
+	background-color: #553344;
+	color: #ffffff;
 }
 .form-control
 {
@@ -36,4 +38,8 @@ thead
 .btn-light
 {
 	border: 3px solid #f3b1c8;
+}
+.jumbotron
+{
+	background-color: 3ffffff;
 }

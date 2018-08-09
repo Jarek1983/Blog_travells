@@ -1,15 +1,16 @@
 <div class="row">
 	<div class="col"></div>
 	<div class="col-md-10">
+	<%= image_tag '01.jpg', style: "width:50%;" %>
 		<p>
-			<strong>Title:</strong>
-			<%= @article.title %>
+			<h2>TITLE</h2><br>
+			<strong><%= @article.title %></strong>
 		</p>
 		<p>
-			<%= @article.created_at %>
+			<%= @article.created_at.strftime('%A %-B %-d, %Y | %l:%M %p') %>
 		</p>
 		<p>
-			<strong>Text:</strong>
+			<h3>ARTICLE</h3><br>
 			<%= @article.text %>
 		</p>
 	<hr>
