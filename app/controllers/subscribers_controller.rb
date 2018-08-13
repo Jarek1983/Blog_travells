@@ -1,7 +1,8 @@
 class SubscribersController < ApplicationController
+http_basic_authenticate_with name: "Jarek", password: "123", except: [:create]
 
 	def index
-
+		@subscribers = Subscriber.all
 	end
 
 	def create
@@ -17,7 +18,13 @@ class SubscribersController < ApplicationController
 		redirect_to root_path, alert:
 			"Sorry, I fail to save your information. Please try again!"
 		end
-	end		
+	end	
+
+	def destroy
+		@subscriber = Subscriber.find(params[:id])
+		@subscriber.destroy
+		redirect_to subscribers_path
+	end	
 
 private
 	def subscriber_params

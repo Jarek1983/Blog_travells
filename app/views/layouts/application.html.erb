@@ -12,14 +12,18 @@
   <body>
     <%= render 'shared/navigation' %>
     <div class="container">
-      <div class="show_notice">
+     
         <% if notice %>
+         <div class="show_notice">
         <%= notice %>
+        </div>
         <% end %>
       </div>
-        <div class="show_alert">
+       
         <% if alert %>
+         <div class="show_alert">
         <%= alert %>
+        </div>
         <% end %>
       </div>
     <%= yield %>
