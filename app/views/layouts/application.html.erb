@@ -12,6 +12,16 @@
   <body>
     <%= render 'shared/navigation' %>
     <div class="container">
+      <div class="show_notice">
+        <% if notice %>
+        <%= notice %>
+        <% end %>
+      </div>
+        <div class="show_alert">
+        <% if alert %>
+        <%= alert %>
+        <% end %>
+      </div>
     <%= yield %>
   </div>
   <%= render 'shared/footer' %>
