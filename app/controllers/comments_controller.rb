@@ -1,9 +1,18 @@
 class CommentsController < ApplicationController
-	http_basic_authenticate_with name: "Jarek", password: "123", except: [:index, :show, :create]
+	# http_basic_authenticate_with name: "Jarek", password: "123", except: [:index, :show, :create]
+
+before_action :authorize, :only => [:create]
+
 	def create
 		@article = Article.find(params[:article_id])
 		@comment = @article.comments.create(comment_params)
-		redirect_to article_path(@article)
+		if @comment.save
+		redirect_to article_path(@article), notice:
+		"You successfully created a comment."
+		else
+		redirect_to article_path(@article), alert:
+		"Comment could not be created."
+		end
 	end
 
 	def destroy

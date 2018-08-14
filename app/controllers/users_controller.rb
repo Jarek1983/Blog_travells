@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			session[:user_id] = @user.id
 			redirect_to articles_path, notice:
 			"welcome #{@user.userid}! You successfully created an account." 
 		else
