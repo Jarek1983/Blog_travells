@@ -9,6 +9,7 @@
 		<% end %>
 		<table class="table table-hover table-striped table-responsive-xs table-danger">
 			<tr>
+			<th>Photo</th>
 			<th>Title</th>
 			<th>Text</th>
 		<% if current_user && current_user.admin? %>
@@ -19,6 +20,13 @@
 			</tr>
 				<% @articles.each do |article| %>
 			<tr>
+			<td>
+				<% if article.photo.present? %>
+				<%= image_tag article.photo.url(:thumb) %>
+				<% else %>
+				<%= image_tag('image.jpg', style:"width:50px;") %>
+				<% end %>
+			</td>
 			<td>
 				<%= article.title %>
 			</td>
