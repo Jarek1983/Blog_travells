@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			redirect_to articles_path, notice:
-			"welcome #{@user.userid}! You successfully created an account." 
+			"Welcome #{@user.userid}! You successfully created an account." 
 		else
 			render 'new'
 		end

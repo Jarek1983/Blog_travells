@@ -11,17 +11,17 @@ class SessionsController < ApplicationController
   	user = User.find_by_userid(params[:userid])
   	if user && user.authenticate(params[:password])
   		session[:user_id] = user.id
-  		redirect_to root_path, notice:
-  		"Welcome #{user.userid}, you successfully Signed In!"
+  		redirect_to root_path,  
+      flash[:success] = "Welcome #{user.userid}, you successfully Signed In!"
   	else
-  		redirect_to new_session_path, alert:
-  		"User ID and/or Password Invalid"
+  		redirect_to new_session_path,
+      flash[:danger] = 'Invalid email/password combination'
   	end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice:
-    "You successfully Logged Out!" 
+    redirect_to root_path, 
+    flash[:notice] = "You successfully Logged Out!" 
   end
 end
