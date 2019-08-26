@@ -4,4 +4,4 @@
 * Bootstrap 4.3.1
 * Jquery-rails
 * Bcrypt - authenticate 
-* Papierclip
+* Paperclip
